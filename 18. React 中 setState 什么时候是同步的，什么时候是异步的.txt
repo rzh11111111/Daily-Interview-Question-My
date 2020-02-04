@@ -1,0 +1,2 @@
+由React控制的事件处理程序，以及生命周期函数调用setState不会同步更新state 。
+React控制之外的事件中调用setState是同步更新的。比如原生js绑定的事件，setTimeout/setInterval等。
