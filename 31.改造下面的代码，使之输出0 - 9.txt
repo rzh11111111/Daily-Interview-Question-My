@@ -1,0 +1,27 @@
+for (var i = 0; i< 10; i++){
+	setTimeout(() => {
+		console.log(i);
+    }, 1000)
+}
+
+// 解法一：
+for (let i = 0; i< 10; i++){
+  setTimeout(() => {
+    console.log(i);
+  }, 1000)
+}
+
+// 解法二：
+利用 setTimeout 函数的第三个参数，会作为回调函数的第一个参数传入
+for (var i = 0; i < 10; i++) {
+  setTimeout(i => {
+    console.log(i);
+  }, 1000, i)
+}
+
+// 解法三：
+setTimeout(() => {
+	for (var i = 0; i< 10; i++){
+	console.log(i);}
+    }, 1000);
+
