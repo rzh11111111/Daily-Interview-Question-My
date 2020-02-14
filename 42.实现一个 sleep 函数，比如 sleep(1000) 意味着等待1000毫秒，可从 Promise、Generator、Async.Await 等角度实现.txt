@@ -5,3 +5,11 @@ const sleep = time => {
 sleep(1000).then(()=>{
   console.log(1)
 })
+
+//Generator
+function* sleepGenerator(time) {
+  yield new Promise(function(resolve,reject){
+    setTimeout(resolve,time);
+  })
+}
+sleepGenerator(1000).next().value.then(()=>{console.log(1)})
