@@ -1,0 +1,51 @@
+冒泡算法的原理：
+升序冒泡：
+两次循环，相邻元素两两比较，如果前面的大于后面的就交换位置
+
+降序冒泡：
+两次循环，相邻元素两两比较，如果前面的小于后面的就交换位置
+
+js实现：
+
+
+// 升序冒泡
+function maopao(arr){
+  const array = [...arr]
+  for(let i = 0, len = array.length; i < len - 1; i++){
+    for(let j = i + 1; j < len; j++) {
+      if (array[i] > array[j]) {
+        let temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
+      }
+    }
+  }
+  return array
+}
+
+看起来没问题，不过一般生产环境都不用这个，原因是效率低下，冒泡排序在平均和最坏情况下的时间复杂度都是 O(n^2)，最好情况下都是 O(n)，空间复杂度是 O(1)。因为就算你给一个已经排好序的数组，如[1,2,3,4,5,6] 它也会走一遍流程，白白浪费资源。所以有没有什么好的解决方法呢？
+
+答案是肯定有的：
+
+加个标识，如果已经排好序了就直接跳出循环。
+
+优化版：
+
+function maopao(arr){
+  const array = [...arr]
+  let isOk = true
+  for(let i = 0, len = array.length; i < len - 1; i++){
+    for(let j = i + 1; j < len; j++) {
+      if (array[i] > array[j]) {
+        let temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
+        isOk = false
+      }
+    }
+    if(isOk){
+      break
+    }
+  }
+  return array
+}
