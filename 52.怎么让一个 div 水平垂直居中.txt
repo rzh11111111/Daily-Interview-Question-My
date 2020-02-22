@@ -40,3 +40,12 @@ div.child {
     bottom: 0;
     margin: auto;
 }
+
+3.
+
+div.parent{
+  display:flex;
+}
+div.child{
+  margin:auto;
+}
