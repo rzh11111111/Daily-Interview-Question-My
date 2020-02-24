@@ -1,0 +1,10 @@
+<img src="1.jpg" style="width:480px!important;”>
+
+
+max-width: 300px
+
+
+transform: scale(0.625,0.625)
+
+box-sizing: border-box;
+padding: 0 90px;
