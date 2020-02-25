@@ -1,0 +1,1 @@
+将ES6的代码转换为AST语法树，然后再将ES6 AST转为ES5 AST，再将AST转为代码
