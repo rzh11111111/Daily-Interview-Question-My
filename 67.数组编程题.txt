@@ -1,0 +1,36 @@
+随机生成一个长度为 10 的整数类型的数组，例如 [2, 10, 3, 4, 5, 11, 10, 11, 20]，将其排列成一个新数组，要求新数组形式如下，例如 [[2, 3, 4, 5], [10, 11], [20]]。
+
+// 生产随机数
+var arr = (function(len){
+    var a = []
+    for(var i = 0; i < len; i++) {
+        a.push(Math.floor(Math.random() * 100))
+    }
+    return a
+})(20)
+
+// 排序
+arr.sort(function(a, b) {
+    return a - b
+})
+// 去重 (arr 转 set 然后 set 转 arr)
+arr = [...(new Set([...arr]))]
+
+var subArr = []
+
+// 用 map 存储
+var map = {}
+arr.forEach(item => {
+    var key = Math.floor(item / 10)
+    if(!map[key]) {
+        map[key] = []
+    }
+    map[key].push(item)
+})
+
+// map 转 数组
+for(var key in map) {
+    subArr.push(map[key])
+}
+
+console.log(JSON.stringify(subArr))
